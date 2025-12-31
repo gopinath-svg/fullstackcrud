@@ -1,4 +1,5 @@
 import express from 'express'
+import moviesRoute from "./routes/movies.route.js";
 const app = express();
 const PORT = 3000;
 
@@ -8,26 +9,10 @@ app.get('/',(req,res)=>{
 })
 
 //CRUD functionality of movies
-//R - for reading
-app.get('/movies',()=>{
+//client -> middleware -> server
 
-})
+app.use('/movies',moviesRoute);
 
-//c - for creating
-
-app.post('/movies',()=>{
-  
-})
-
-//u-for update
-app.put('/movies/:id',()=>{
-  
-})
-
-//D - for delete
-app.delete('/movies/:id',()=>{
-  
-})
 
 app.listen(PORT,()=>{
   console.log(`server run port http://localhost:${PORT}`);
